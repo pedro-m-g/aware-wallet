@@ -1,0 +1,19 @@
+{
+    "name": "pedro-mg/aware-wallet",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "AwareWallet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pedro Martin del Campo Gonzalez",
+            "email": "pedro.martindelcampo.gonzalez@gmail.com"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "start": "php -S localhost:8000 -t public"
+    }
+}
