@@ -1,9 +1,7 @@
 <?php
 
-namespace AwareWallet\Services\Routing;
+namespace AwareWallet\Http;
 
-use AwareWallet\Http\Request;
-use AwareWallet\Http\Response;
 use Exception;
 
 class Router
@@ -20,12 +18,13 @@ class Router
     {
         foreach ($this->routes as $route) {
             [$method, $path, $controller, $action] = $route;
-            if ($path !== $request->path()) {
+            if (!preg_match($this->pathRegex($path), $request->path())) {
                 continue;
             }
             if ($method !== $request->method()) {
                 continue;
             }
+            $request->extractPathParams($path);
             try {
                 $response = (new $controller())->$action();
             } catch (Exception) {
@@ -46,6 +45,13 @@ class Router
             ]);
         }
         return new Response(404);
+    }
+
+    private function pathRegex(string $path): string
+    {
+        $withSlashesReplaced = str_replace('/', '\\/', $path);
+        $withPlaceholdersReplaced = preg_replace('/\:[^\/]+/', '[^\\/]+', $withSlashesReplaced);
+        return '/^' . $withPlaceholdersReplaced . '$/';
     }
 
 }

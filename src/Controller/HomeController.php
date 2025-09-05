@@ -14,4 +14,11 @@ class HomeController
         ]);
     }
 
+    public function welcome()
+    {
+        return new Response(200, '<h1>Welcome</h1>', [
+            'Content-Type' => 'text/html'
+        ]);
+    }
+
 }

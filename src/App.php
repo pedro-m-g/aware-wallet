@@ -4,7 +4,7 @@ namespace AwareWallet;
 
 use AwareWallet\Config\Configuration;
 use AwareWallet\Http\Request;
-use AwareWallet\Services\Routing\Router;
+use AwareWallet\Http\Router;
 
 class App
 {
