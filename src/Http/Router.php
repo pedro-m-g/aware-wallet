@@ -2,6 +2,7 @@
 
 namespace AwareWallet\Http;
 
+use AwareWallet\Context\ApplicationContext;
 use Exception;
 
 class Router
@@ -14,8 +15,9 @@ class Router
         $this->routes = $routes;
     }
 
-    public function dispatch(Request $request): Response
+    public function dispatch(ApplicationContext $context): Response
     {
+        $request = new Request();
         foreach ($this->routes as $route) {
             [$method, $path, $controller, $action] = $route;
             if (!preg_match($this->pathRegex($path), $request->path())) {
@@ -25,8 +27,9 @@ class Router
                 continue;
             }
             $request->extractPathParams($path);
+            $context->share(Request::class, fn($ctx) => $request);
             try {
-                $response = (new $controller())->$action();
+                $response = (new $controller($context))->$action();
             } catch (Exception) {
                 return new Response(500);
             }
