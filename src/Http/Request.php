@@ -2,52 +2,54 @@
 
 namespace AwareWallet\Http;
 
+use AwareWallet\Collection\ParameterCollection;
+
 class Request
 {
 
     private string $path;
     private string $method;
-    private array $queryParams;
-    private array $postParams;
-    private array $pathParams;
+    private ParameterCollection $queryParams;
+    private ParameterCollection $postParams;
+    private ParameterCollection $pathParams;
 
     public function __construct()
     {
         $this->path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
         $this->method = strtoupper($_SERVER['REQUEST_METHOD']) ?? 'GET';
-        $this->queryParams = $_GET ?? [];
-        $this->postParams = $_POST ?? [];
-        $this->pathParams = [];
+        $this->queryParams = new ParameterCollection($_GET ?? []);
+        $this->postParams = new ParameterCollection($_POST ?? []);
+        $this->pathParams = new ParameterCollection([]);
     }
 
-    public function path()
+    public function path(): string
     {
         return $this->path;
     }
 
-    public function method()
+    public function method(): string
     {
         return $this->method;
     }
 
-    public function queryParams()
+    public function queryParams(): ParameterCollection
     {
         return $this->queryParams;
     }
 
-    public function postParams()
+    public function postParams(): ParameterCollection
     {
         return $this->postParams;
     }
 
-    public function pathParams()
+    public function pathParams(): ParameterCollection
     {
         return $this->pathParams;
     }
 
     public function addPathParam(string $param, string $value)
     {
-        $this->pathParams[$param] = $value;
+        $this->pathParams->add($param, $value);
     }
 
     public function extractPathParams(string $path)

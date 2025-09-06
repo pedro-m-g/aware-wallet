@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        $name = $this->request()->pathParams()['name'];
+        $name = $this->request()->pathParams()->get('name');
         return new Response(200, '<h1>Welcome ' . $name . '</h1>', [
             'Content-Type' => 'text/html'
         ]);
