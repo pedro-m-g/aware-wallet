@@ -11,6 +11,7 @@ class App
 {
 
     private ApplicationContext $context;
+    private $providers = [];
 
     public function __construct()
     {
@@ -20,7 +21,9 @@ class App
 
     private function bootstrap()
     {
-        $this->context->share(Request::class, fn($context) => new Request());
+        foreach ($this->providers as $provider) {
+            $provider->bootstrap($this->context);
+        }
     }
 
     public function run()
