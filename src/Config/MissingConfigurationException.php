@@ -1,13 +1,13 @@
 <?php
 
-class ConfigDoesNotExistException extends RuntimeException
+class MissingConfigurationException extends RuntimeException
 {
 
     private string $config;
 
     public function __construct(string $config)
     {
-        parent::__construct('Config not found: ' . $config);
+        parent::__construct('Missing configuration: ' . $config);
         $this->config = $config;
     }
 

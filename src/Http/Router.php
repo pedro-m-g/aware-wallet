@@ -3,16 +3,19 @@
 namespace AwareWallet\Http;
 
 use AwareWallet\Context\ApplicationContext;
+use AwareWallet\Services\Logging\Logger;
 use Exception;
 
 class Router
 {
 
     private array $routes;
+    private Logger $logger;
 
     public function __construct(array $routes)
     {
         $this->routes = $routes;
+        $this->logger = new Logger(Router::class);
     }
 
     public function dispatch(ApplicationContext $context): Response
@@ -26,11 +29,13 @@ class Router
             if ($method !== $request->method()) {
                 continue;
             }
+            $this->logger->info('Matched route: ' . $path);
             $request->extractPathParams($path);
             $context->share(Request::class, fn($ctx) => $request);
             try {
                 $response = (new $controller($context))->$action();
-            } catch (Exception) {
+            } catch (Exception $ex) {
+                $this->logger->error($ex->getMessage());
                 return new Response(500);
             }
             if ($response instanceof Response) {
@@ -41,12 +46,14 @@ class Router
             }
             $json = json_encode($response);
             if ($json === false) {
+                $this->logger->error('Could not convert response to JSON');
                 return new Response(500);
             }
             return new Response(200, $json, [
                 'Content-Type' => 'application/json'
             ]);
         }
+        $this->logger->error('Page not found: ' . $request->path());
         return new Response(404);
     }
 
