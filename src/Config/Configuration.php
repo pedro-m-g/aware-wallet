@@ -3,9 +3,6 @@
 namespace AwareWallet\Config;
 
 use AwareWallet\Services\Logging\Logger;
-use ConfigDoesNotExistException;
-use MissingConfiguration;
-use MissingConfigurationException;
 
 class Configuration
 {
@@ -16,13 +13,14 @@ class Configuration
 
     public function __construct(string $configDir)
     {
+        $this->logger = new Logger(Configuration::class);
         if (!file_exists($configDir) || !is_dir($configDir)) {
             $this->logger->error('Invalid configuration directory: ' . $configDir);
-            throw new InvalidConfigDirectoryException($configDir);
+            throw new InvalidConfigurationDirectoryException($configDir);
         }
+
         $this->configDir = $configDir;
         $this->cache = [];
-        $this->logger = new Logger(Configuration::class);
     }
 
     public function getConfig(string $config)

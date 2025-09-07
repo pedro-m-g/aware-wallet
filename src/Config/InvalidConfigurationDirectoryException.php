@@ -4,7 +4,7 @@ namespace AwareWallet\Config;
 
 use RuntimeException;
 
-class InvalidConfigDirectoryException extends RuntimeException
+class InvalidConfigurationDirectoryException extends RuntimeException
 {
 
     private string $dir;

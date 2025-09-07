@@ -6,6 +6,11 @@
             "AwareWallet\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "AwareWallet\\": "test/"
+        }
+    },
     "authors": [
         {
             "name": "Pedro Martin del Campo Gonzalez",

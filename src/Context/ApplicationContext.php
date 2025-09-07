@@ -15,7 +15,7 @@ class ApplicationContext
     public function share(string $className, callable $factory)
     {
         $instance = null;
-        $this->context[$className] = function(ApplicationContext $context) use ($factory, $instance) {
+        $this->context[$className] = function(ApplicationContext $context) use ($factory, &$instance) {
             if ($instance == null) {
                 $instance = $factory($context);
             }

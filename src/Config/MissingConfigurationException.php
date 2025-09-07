@@ -1,5 +1,9 @@
 <?php
 
+namespace AwareWallet\Config;
+
+use RuntimeException;
+
 class MissingConfigurationException extends RuntimeException
 {
 
