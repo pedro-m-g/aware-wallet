@@ -14,3 +14,4 @@ Aware Wallet es una aplicación web que permite dar seguimiento a los ingresos, 
     - `Http/`: Encapsulamiento de peticiones y respuestas HTTP.
     - `Services/`.
     - `App.php`: Clase principal.
+- `tests/`: Pruebas automatizadas en PHPUnit.
