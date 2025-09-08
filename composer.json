@@ -6,14 +6,22 @@
             "AwareWallet\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "AwareWallet\\": "test/"
+        }
+    },
     "authors": [
         {
             "name": "Pedro Martin del Campo Gonzalez",
             "email": "pedro.martindelcampo.gonzalez@gmail.com"
         }
     ],
-    "require": {},
     "scripts": {
-        "start": "php -S localhost:8000 -t public"
+        "start": "php -S localhost:8000 -t public",
+        "test": "vendor/bin/phpunit --testdox tests"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
     }
 }
