@@ -1,8 +1,7 @@
 <?php
 
-use AwareWallet\Controller\HomeController;
+use AwareWallet\Controller\Auth\LogInController;
 
 return [
-    ['GET', '/', HomeController::class, 'index'],
-    ['GET', '/:name', HomeController::class, 'welcome']
+    ['GET', '/', LogInController::class, 'show']
 ];
