@@ -1,0 +1,23 @@
+{
+  "name": "aware-wallet",
+  "version": "1.0.0",
+  "description": "Aware Wallet es una aplicación web que permite dar seguimiento a los ingresos, gastos y ahorros con y sin meta fija.",
+  "main": "web/js/index.js",
+  "scripts": {
+    "build-js": "esbuild web/js/index.js --bundle --outfile=public/assets/app.js",
+    "build-css": "esbuild web/css/app.css --bundle --outfile=public/assets/styles.css",
+    "build": "npm run build-css && npm run build-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedro-m-g/aware-wallet.git"
+  },
+  "keywords": [],
+  "author": "pedro-mg",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/pedro-m-g/aware-wallet/issues"
+  },
+  "homepage": "https://github.com/pedro-m-g/aware-wallet#readme"
+}
