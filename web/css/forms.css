@@ -1,0 +1,43 @@
+label {
+    display: block;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    border: solid 1px #CACACA;
+    padding: 0.3rem 0.5rem;
+}
+
+.form-control:focus,
+.form-control:focus,
+.form-control:focus {
+    outline: solid 1px var(--primary-color);
+}
+
+.form-group {
+    padding-top: 1rem;
+}
+
+.btn {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.2rem;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: solid 1px var(--primary-color);
+    color: var(--complement-text-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border: solid 1px var(--secondary-color);
+    color: var(--complement-secondary-text-color);
+}

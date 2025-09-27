@@ -1,4 +1,4 @@
-<htnk lang="es">
+<html lang="es">
     <head>
         <title>Aware Wallet</title>
         <link rel="stylesheet" type="text/css" href="/assets/styles.css" />
@@ -19,4 +19,4 @@
             <?= $content ?>
         </main>
     </body>
-</htnk>
+</html>

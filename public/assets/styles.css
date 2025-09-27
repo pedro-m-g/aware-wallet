@@ -1,1 +1,109 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap";
+
+/* web/css/layout.css */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--bg-color);
+}
+main {
+  padding: 1rem;
+}
+.content {
+  background-color: var(--card-bg-color);
+  padding: 1rem;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 5%);
+}
+
+/* web/css/typography.css */
+:root {
+  font-size: 16px;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+  color: var(--text-color);
+}
+h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 300;
+}
+a {
+  color: var(--link-color);
+}
+
+/* web/css/colors.css */
+:root {
+  --primary-color: #388E3C;
+  --secondary-color: #A5D6A7;
+  --complement-text-color: #FFFFFF;
+  --complement-secondary-text-color: #004A03;
+  --bg-color: #EBEBEB;
+  --text-color: #3B3B3B;
+  --card-bg-color: #FFFFFF;
+  --link-color: #1B5E20;
+}
+
+/* web/css/nav.css */
+header {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--complement-text-color);
+  padding: 0.5rem 1rem;
+}
+a.brand-link {
+  text-decoration: none;
+  color: var(--complement-text-color);
+}
+
+/* web/css/forms.css */
+label {
+  display: block;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  border: solid 1px #CACACA;
+  padding: 0.3rem 0.5rem;
+}
+.form-control:focus,
+.form-control:focus,
+.form-control:focus {
+  outline: solid 1px var(--primary-color);
+}
+.form-group {
+  padding-top: 1rem;
+}
+.btn {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.2rem;
+  letter-spacing: 1px;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  border: solid 1px var(--primary-color);
+  color: var(--complement-text-color);
+}
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border: solid 1px var(--secondary-color);
+  color: var(--complement-secondary-text-color);
+}
+
 /* web/css/app.css */

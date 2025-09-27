@@ -6,7 +6,8 @@
   "scripts": {
     "build-js": "esbuild web/js/index.js --bundle --outfile=public/assets/app.js",
     "build-css": "esbuild web/css/app.css --bundle --outfile=public/assets/styles.css",
-    "build": "npm run build-css && npm run build-js"
+    "build": "npm run build-css && npm run build-js",
+    "dev": "node web/dev.js"
   },
   "repository": {
     "type": "git",

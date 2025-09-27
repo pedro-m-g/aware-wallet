@@ -1,0 +1,11 @@
+header {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--complement-text-color);
+    padding: 0.5rem 1rem;
+}
+
+a.brand-link {
+    text-decoration: none;
+    color: var(--complement-text-color);
+}
